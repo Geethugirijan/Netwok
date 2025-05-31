@@ -1,0 +1,19 @@
+#!/bin/bash
+file="/mnt/c/Users/geeth/Desktop/geethu/Home.txt"
+if [ ! -f "$file" ]
+then
+echo " error:file not found"
+exit1
+fi
+first_line=""
+last_line=""
+while IFS= read -r line
+do
+if [ -z "$first_line" ]
+then
+first_line="$line"
+fi
+last_line="$line"
+done < "$file"
+echo " first line:$first_line"
+echo "last_line:$last_line"
